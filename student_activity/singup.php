@@ -41,11 +41,11 @@ require 'connect.php';
         <div class="form-floating mb-1">
           <select class="form-select" id="Major">
             <?php
-            $sql = 'select * from major order by';
+            $sql = 'select * from major order by faculty';
             $result = $conn->query($sql);
             while ($row = $result->fetch_assoc()){
-                echo "option value='{$row['majorID']}'>
-                {$eow['faculty']}-{$row['majorName']}
+                echo "<option value='{$row['majorID']}'>
+                {$row['faculty']}-{$row['majorName']}
                 </option>";
             }
             $conn->close();
